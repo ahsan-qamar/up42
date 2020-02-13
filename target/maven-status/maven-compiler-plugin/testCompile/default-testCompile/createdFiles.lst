@@ -1,1 +1,3 @@
-com/challenge/up42/image/ImageApplicationTests.class
+com/challenge/up42/image/DataSourceTest.class
+com/challenge/up42/image/FeatureControllerTest.class
+com/challenge/up42/image/FeatureServiceTest.class
