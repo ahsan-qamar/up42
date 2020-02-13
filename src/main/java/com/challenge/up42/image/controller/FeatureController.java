@@ -42,7 +42,8 @@ public class FeatureController {
 
     @ApiOperation(value = "Return a feature by id")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Feature returned successfully", response = String.class)
+            @ApiResponse(code = 200, message = "Feature returned successfully", response = FeatureResponseDto.class),
+            @ApiResponse(code = 404, message = "Feature not found.")
     })
     @GetMapping(value = "/features/{id}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<FeatureResponseDto> getFeature(@PathVariable("id") final UUID featureId) {
@@ -51,7 +52,8 @@ public class FeatureController {
 
     @ApiOperation(value = "Return a quick look image by feature id")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Image returned successfully", response = String.class)
+            @ApiResponse(code = 200, message = "Image returned successfully", response = byte[].class),
+            @ApiResponse(code = 404, message = "Feature not found.")
     })
     @GetMapping(value = "/features/{id}/quicklook", produces = IMAGE_PNG_VALUE)
     public ResponseEntity<byte[]> getQuickLook(@PathVariable("id") final UUID featureId) {
